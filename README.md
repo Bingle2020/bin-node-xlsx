@@ -16,14 +16,14 @@ Excel file parser/builder that relies on [js-xlsx](https://github.com/SheetJS/js
 
 ## Usage
 ### Installation
-```npm install node-xlsx --save```
+```npm install bin-node-xlsx --save```
 ### Examples
 
 1. Parsing a xlsx from file/buffer, outputs an array of worksheets
 
 ```js
-import xlsx from 'node-xlsx';
-// Or var xlsx = require('node-xlsx').default;
+import xlsx from 'bin-node-xlsx';
+// Or var xlsx = require('bin-node-xlsx').default;
 
 // Parse a buffer
 const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(`${__dirname}/myFile.xlsx`));
@@ -34,8 +34,8 @@ const workSheetsFromFile = xlsx.parse(`${__dirname}/myFile.xlsx`);
 2. Building a xlsx
 
 ```js
-import xlsx from 'node-xlsx';
-// Or var xlsx = require('node-xlsx').default;
+import xlsx from 'bin-node-xlsx';
+// Or var xlsx = require('bin-node-xlsx').default;
 
 const data = [[1, 2, 3], [true, false, null, 'sheetjs'], ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
 var buffer = xlsx.build([{name: "mySheetName", data: data}]); // Returns a buffer
@@ -43,8 +43,8 @@ var buffer = xlsx.build([{name: "mySheetName", data: data}]); // Returns a buffe
 
   * Custom column width
 ```js
-import xlsx from 'node-xlsx';
-// Or var xlsx = require('node-xlsx').default;
+import xlsx from 'bin-node-xlsx';
+// Or var xlsx = require('bin-node-xlsx').default;
 
 const data = [[1, 2, 3], [true, false, null, 'sheetjs'], ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']]
 const options = {'!cols': [{ wch: 6 }, { wch: 7 }, { wch: 10 }, { wch: 20 } ]};
@@ -54,8 +54,8 @@ var buffer = xlsx.build([{name: "mySheetName", data: data}], options); // Return
 
   * Spanning multiple rows `A1:A4` in every sheets
 ```js
-import xlsx from 'node-xlsx';
-// Or var xlsx = require('node-xlsx').default;
+import xlsx from 'bin-node-xlsx';
+// Or var xlsx = require('bin-node-xlsx').default;
 
 const data = [[1, 2, 3], [true, false, null, 'sheetjs'], ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
 const range = {s: {c: 0, r:0 }, e: {c:0, r:3}}; // A1:A4
@@ -66,8 +66,8 @@ var buffer = xlsx.build([{name: "mySheetName", data: data}], options); // Return
 
   * Spanning multiple rows `A1:A4` in second sheet only
 ```js
-import xlsx from 'node-xlsx';
-// Or var xlsx = require('node-xlsx').default;
+import xlsx from 'bin-node-xlsx';
+// Or var xlsx = require('bin-node-xlsx').default;
 
 const dataSheet1 = [[1, 2, 3], [true, false, null, 'sheetjs'], ['foo', 'bar', new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
 const dataSheet2 = [[4, 5, 6], [7, 8, 9, 10], [11, 12, 13, 14], ['baz', null, 'qux']];
